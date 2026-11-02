@@ -1,0 +1,93 @@
+PRACTICAL 13
+LOAD TESTING USING APACHE JMETER
+
+STEP 1: START APACHE JMETER
+
+1. Install Java JDK.
+2. Download and extract Apache JMeter.
+3. Open Apache JMeter bin folder.
+4. Open Command Prompt in the bin folder.
+5. Run the following command:
+
+jmeter.bat
+
+STEP 2: CREATE A TEST PLAN
+
+1. Open File → New.
+2. Right-click Test Plan.
+3. Select Add → Threads (Users) → Thread Group.
+
+STEP 3: CONFIGURE THREAD GROUP
+
+Number of Threads (Users): 30
+Ramp-Up Period (Seconds): 15
+Loop Count: 4
+
+Total Requests = 30 × 4 = 120
+
+STEP 4: ADD HTTP REQUEST
+
+1. Right-click Thread Group.
+2. Select Add → Sampler → HTTP Request.
+3. Configure:
+
+Protocol: https
+Server Name: example.com
+Method: GET
+Path: /
+
+STEP 5: ADD VIEW RESULTS TREE
+
+1. Right-click Thread Group.
+2. Select Add → Listener → View Results Tree.
+3. Check request, response code and response time.
+
+STEP 6: ADD SUMMARY REPORT
+
+1. Right-click Thread Group.
+2. Select Add → Listener → Summary Report.
+3. Check Samples, Average, Min, Max, Error % and Throughput.
+
+STEP 7: ADD GRAPHICAL REPORTS
+
+Add these listeners:
+
+1. Graph Results
+2. Aggregate Report
+3. Response Time Graph
+4. View Results Tree
+
+STEP 8: RUN THE TEST
+
+1. Click the Start button.
+2. Wait for all requests to complete.
+3. Check the Summary Report.
+4. Analyze response time, throughput and error percentage.
+
+STEP 9: SAVE THE TEST PLAN
+
+File → Save Test Plan As
+
+Save as:
+Practical13_LoadTesting.jmx
+
+STEP 10: CALCULATIONS
+
+Total Requests = 30 × 4 = 120
+
+If 2 requests fail:
+
+Error Percentage = (2 / 120) × 100
+Error Percentage = 1.67%
+
+Throughput = Total Requests / Total Time
+
+STEP 11: OBSERVATION
+
+Analyze the response time, throughput and error
+percentage using JMeter reports.
+
+STEP 12: RESULT
+
+Load testing was successfully performed using
+Apache JMeter.

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks</title>
+</head>
+<body>
+
+    <h2>Student Marks</h2>
+
+    <input type="text" id="search" placeholder="Search student">
+
+    <table id="studentTable" border="1">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th onclick="sortJava()">Java</th>
+                <th>DBMS</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr><td>Arman</td><td>68</td><td>72</td></tr>
+            <tr><td>Zoya</td><td>45</td><td>81</td></tr>
+            <tr><td>Kabir</td><td>91</td><td>64</td></tr>
+            <tr><td>Sana</td><td>57</td><td>76</td></tr>
+            <tr><td>Rayan</td><td>83</td><td>52</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        function sortJava() {
+            let table = document.getElementById("studentTable");
+            let tbody = table.querySelector("tbody");
+            let rows = Array.from(tbody.querySelectorAll("tr"));
+
+            rows.sort((a, b) => {
+                return parseInt(a.cells[1].innerText) -
+                       parseInt(b.cells[1].innerText);
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        document.getElementById("search").addEventListener("keyup", function() {
+            let searchValue = this.value.toLowerCase();
+            let rows = document.querySelectorAll("#studentTable tbody tr");
+
+            rows.forEach(row => {
+                let name = row.cells[0].innerText.toLowerCase();
+                row.style.display = name.includes(searchValue) ? "" : "none";
+            });
+        });
+    </script>
+
+</body>
+</html>
